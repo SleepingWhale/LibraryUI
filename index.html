@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Library</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container" lib-app>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Работа с книгами</div>
+          <div class="panel-body">
+            <form role="form" id="bookform">
+              <div class="form-group">
+                <label for="form-author">Автор:</label>
+                <input type="text" class="form-control" id="form-author" lib-content="author" lib-content-type="string">
+              </div>
+              <div class="form-group">
+                <label for="form-name">Название:</label>
+                <input type="text" class="form-control" id="form-name" lib-content="name" lib-content-type="string">
+              </div>
+              <div class="form-group">
+                <label for="form-year">Год издания:</label>
+                <input type="text" class="form-control" id="form-year" lib-content="year" lib-content-type="number">
+              </div>
+              <div class="form-group">
+                <label for="form-pages">Количество страниц:</label>
+                <input type="text" class="form-control" id="form-pages" lib-content="pages" lib-content-type="number">
+              </div>
+              <input type="text" lib-content="id" lib-content-type="string" hidden="">
+              <div class="panel panel-danger" id="form-warning" lib-warning-panel>
+                <div class="panel-heading">Обратите внимание</div>
+                <div class="panel-body" lib-warning-text></div>
+              </div>
+              <button class="btn btn-default" lib-action="submit">Подтвердить</button>
+              <button type="reset" class="btn btn-warning" lib-action="reset">Очистить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Список книг</div>
+          <div class="panel-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Автор</th>
+                  <th>Название</th>
+                  <th>Управление</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr lib-repeat>
+                  <td lib-model="author"></td>
+                  <td lib-model="name"></td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary" lib-action="edit">Править</button>
+                      <button type="button" class="btn btn-danger" lib-action="delete">Удалить</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/app.js">
+</script>
+
+</html>
