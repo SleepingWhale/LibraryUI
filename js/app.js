@@ -71,7 +71,6 @@ LIB.Model = function() {
     } catch (e) {
       console.log(e);
     }
-
   }
   this.metadata = {
     author: {
@@ -129,8 +128,6 @@ LIB.Model.prototype.add = function(data) {
     return isValid;
   }
 };
-
-
 
 LIB.Model.prototype.modelOnRemoveListener = LIB.changeListener();
 
@@ -193,7 +190,6 @@ LIB.Model.prototype.validate = function(data) {
 };
 
 // View class //////////////////////////////////////////////////
-
 LIB.View = function(model) {
   this.rootElement = document.querySelector('[lib-app]');
   this.repeatObj = new LIB.View.Template(this.rootElement.querySelector('[lib-repeat]'));
@@ -228,7 +224,6 @@ LIB.View.prototype.makeItem = function(data, id) {
     element = this.repeatObj.controllerActions[inst];
     element.setAttribute('lib-id', id);
   }
-
   this.repeatObj.repeatTemplate.setAttribute('lib-repeat', id);
   return this.repeatObj.repeatTemplate.cloneNode(true);
 };
@@ -311,7 +306,6 @@ LIB.View.prototype.hideWarning = function() {
 };
 
 // Controller class //////////////////////////////////////////////////
-
 LIB.Controller = function(model, view) {
   view.formCtls.submit.addEventListener('click', function(event) {
     event.preventDefault();
@@ -356,12 +350,10 @@ LIB.Controller = function(model, view) {
         for (inst in view.formObj) {
           view.formObj[inst].value = data[inst];
         }
-
         return;
       }
     }
   }, false);
-
 };
 
 // run //////////////////////////////////////////////////
