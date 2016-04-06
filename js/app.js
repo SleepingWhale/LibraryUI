@@ -85,6 +85,8 @@
           }.bind(this), 100);
         }
       } catch (e) {
+        this.id = 0;
+        this.data = {};
         console.log(e);
       }
     }
@@ -301,7 +303,7 @@
   };
 
   LIB.View.prototype.showWarning = function(errors) {
-    var o, l, line, text, msg,
+    var l, line, text,
       list = document.createElement('ul');
     for (i = 0, l = errors.length; i < l; i++) {
       line = document.createElement('li');
@@ -311,7 +313,6 @@
     }
     this.warningElement.style.display = 'block';
     this.warningMsg.appendChild(list);
-    console.log(errors);
   };
 
   LIB.View.prototype.hideWarning = function() {
